@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
     private AnimatorController animatorController;
-    private Rigidbody2D rigid;
+
     private PlayerInput input;
 
     private Vector2 MoveAxis;
-
+    
     [SerializeField]private float velocity;
     void Start()
     {
         animatorController = GetComponentInChildren<AnimatorController>();
-        rigid = GetComponent<Rigidbody2D>();
         input = new PlayerInput();
         MoveAxis = Vector2.zero;
     }
@@ -24,7 +22,8 @@ public class PlayerController : MonoBehaviour
     
     void FixedUpdate()
     {
-        rigid.velocity = MoveAxis * velocity * Time.fixedDeltaTime;
+        if(Mathf.Abs(MoveAxis.x) != Mathf.Abs(MoveAxis.y))
+        transform.position+= new Vector3(MoveAxis.x, MoveAxis.y,0) * velocity * Time.fixedDeltaTime; 
     }
 
     public void Movement(InputAction.CallbackContext context){

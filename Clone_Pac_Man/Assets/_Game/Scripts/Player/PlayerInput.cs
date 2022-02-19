@@ -23,7 +23,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""c15a1ffe-e803-4dd5-9055-8c13c2d0fe4f"",
                     ""expectedControlType"": ""Button"",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.8,max=0.925)"",
                     ""interactions"": """"
                 }
             ],
@@ -31,9 +31,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""37c18ac2-3d7a-4b49-8112-ca324564b3f3"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""AxisDeadzone(min=0.8,max=0.925)"",
                     ""groups"": """",
                     ""action"": ""Movement"",
                     ""isComposite"": true,
